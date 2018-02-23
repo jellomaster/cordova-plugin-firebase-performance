@@ -1,0 +1,53 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+xmlns:android="http://schemas.android.com/apk/res/android"
+           id="cordova-plugin-firebase-Performance"
+      version="0.11.0">
+
+    <name>cordova-plugin-firebase-Performance</name>
+    <description>Cordova plugin for Firebase Performance</description>
+    <license>MIT</license>
+    <keywords>cordova</keywords>
+    <repo>https://github.com/chemerisuk/cordova-plugin-firebase-Performance</repo>
+    <issue>https://github.com/chemerisuk/cordova-plugin-firebase-Performance/issues</issue>
+
+    <js-module src="www/FirebasePerformance.js" name="FirebasePerformance">
+        <merges target="cordova.plugins.firebase.Performance" />
+    </js-module>
+
+    <engines>
+        <engine name="cordova" version=">=6.0.0"/>
+        <engine name="cordova-android" version=">=6.0.0"/>
+        <engine name="cordova-ios" version=">=4.3.0"/>
+    </engines>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FirebasePerformance">
+                <param name="ios-package" value="FirebasePerformancePlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/FirebasePerformancePlugin.h" />
+        <source-file src="src/ios/FirebasePerformancePlugin.m" />
+
+        <framework src="FirebasePerformance" type="podspec" spec="~> 2.0.1"/>
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FirebasePerformance">
+                <param name="android-package" value="by.chemerisuk.cordova.firebase.FirebasePerformancePlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <dependency id="cordova-support-google-services" version="~1.0.0"/>
+
+        <framework src="com.google.firebase:firebase-Performance:11.0.+" />
+
+        <source-file src="src/android/FirebasePerformancePlugin.java"
+            target-dir="src/by/chemerisuk/cordova/firebase/" />
+    </platform>
+
+</plugin>
