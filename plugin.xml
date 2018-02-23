@@ -31,7 +31,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <header-file src="src/ios/FirebasePerformancePlugin.h" />
         <source-file src="src/ios/FirebasePerformancePlugin.m" />
 
-        <framework src="FirebasePerformance" type="podspec" spec="~> 2.0.1"/>
     </platform>
 
 
